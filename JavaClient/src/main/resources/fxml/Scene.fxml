@@ -6,12 +6,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="209.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="li.litech.javaclient.FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="284.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="li.litech.javaclient.FXMLController">
     <children>
-        <Button fx:id="button" layoutX="82.0" layoutY="161.0" onAction="#handleButtonAction" text="Login" />
-      <TextField fx:id="username" layoutX="14.0" layoutY="100.0" prefHeight="25.0" prefWidth="182.0" promptText="Username" />
-      <TextField fx:id="password" layoutX="14.0" layoutY="129.0" prefHeight="25.0" prefWidth="182.0" promptText="Password" />
+        <Button fx:id="loginButton" layoutX="224.0" layoutY="161.0" onAction="#loginAction" text="Login" />
+      <TextField fx:id="username" layoutX="14.0" layoutY="100.0" prefHeight="25.0" prefWidth="257.0" promptText="Username" />
+      <TextField fx:id="password" layoutX="14.0" layoutY="129.0" prefHeight="25.0" prefWidth="257.0" promptText="Password" />
       <Label layoutX="6.0" layoutY="6.0" text="Response:" />
-      <Label fx:id="response" layoutX="6.0" layoutY="23.0" prefHeight="17.0" prefWidth="198.0" />
+      <Label fx:id="response" alignment="TOP_LEFT" layoutX="6.0" layoutY="23.0" prefHeight="64.0" prefWidth="272.0" />
+      <Button fx:id="regiButton" layoutX="14.0" layoutY="161.0" mnemonicParsing="false" onAction="#getRegistrationsAction" text="Get Registrations" />
     </children>
 </AnchorPane>
