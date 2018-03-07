@@ -14,5 +14,6 @@
       <Label layoutX="6.0" layoutY="6.0" text="Response:" />
       <Label fx:id="response" alignment="TOP_LEFT" layoutX="6.0" layoutY="23.0" prefHeight="64.0" prefWidth="272.0" />
       <Button fx:id="regiButton" layoutX="14.0" layoutY="161.0" mnemonicParsing="false" onAction="#getRegistrationsAction" text="Get Registrations" />
+      <Button fx:id="registerButton" layoutX="155.0" layoutY="161.0" onAction="#registerAction" text="Register" />
     </children>
 </AnchorPane>

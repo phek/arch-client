@@ -28,8 +28,8 @@ import org.json.JSONObject;
 
 public class FXMLController implements Initializable {
 
-    //private String SERVER = "localhost";
-    private String SERVER = "84.217.10.60";
+    private String SERVER = "localhost";
+    //private String SERVER = "84.217.10.60";
     private int PORT = 3000;
     private String token = null;
 
@@ -49,6 +49,19 @@ public class FXMLController implements Initializable {
             String pw = password.getText();
             if (uname != "" && pw != "") {
                 login(uname, pw);
+            }
+        } catch (IOException | JSONException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void registerAction(ActionEvent event) {
+        try {
+            String uname = username.getText();
+            String pw = password.getText();
+            if (uname != "" && pw != "") {
+                register(uname, pw);
             }
         } catch (IOException | JSONException ex) {
             System.out.println(ex.getMessage());
@@ -77,6 +90,33 @@ public class FXMLController implements Initializable {
             newWindow.show();
         } catch (IOException | JSONException ex) {
             System.out.println(ex.getMessage());
+        }
+    }
+
+    private void register(String username, String password) throws IOException, JSONException {
+        String dummyData = "java";
+        String payload = "{"
+                + "\"username\": \"" + username + "\", "
+                + "\"password\": \"" + password + "\", "
+                + "\"firstname\": \"" + dummyData + "\", "
+                + "\"lastname\": \"" + dummyData + "\", "
+                + "\"email\": \"" + dummyData + "\", "
+                + "\"ssn\": \"" + dummyData + "\""
+                + "}";
+        StringEntity entity = new StringEntity(payload, ContentType.APPLICATION_JSON);
+
+        HttpClient httpClient = HttpClientBuilder.create().build();
+        HttpPost request = new HttpPost("http://" + SERVER + ":" + PORT + "/registration");
+        request.setEntity(entity);
+
+        HttpResponse res = httpClient.execute(request);
+        String json = IOUtils.toString(res.getEntity().getContent());
+        JSONObject object = new JSONObject(json);
+        try {
+            token = object.getString("token");
+            response.setText(token);
+        } catch (JSONException ex) {
+            response.setText(object.getString("error"));
         }
     }
 
@@ -116,7 +156,7 @@ public class FXMLController implements Initializable {
         HttpResponse res = httpClient.execute(request);
         String json = IOUtils.toString(res.getEntity().getContent());
         try {
-        JSONArray arr = new JSONArray(json);
+            JSONArray arr = new JSONArray(json);
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);
                 String name = obj.getString("firstname") + " " + obj.getString("lastname");
