@@ -100,7 +100,7 @@ public class FXMLController implements Initializable {
                 + "\"password\": \"" + password + "\", "
                 + "\"firstname\": \"" + dummyData + "\", "
                 + "\"lastname\": \"" + dummyData + "\", "
-                + "\"email\": \"" + dummyData + "\", "
+                + "\"email\": \"" + "java@java.se" + "\", "
                 + "\"ssn\": \"" + dummyData + "\""
                 + "}";
         StringEntity entity = new StringEntity(payload, ContentType.APPLICATION_JSON);
