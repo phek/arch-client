@@ -1,5 +1,5 @@
 # arch-client
-Additional client made in Java. This client supports Login, Registration and getting all appliances form the server.
+Additional client made in Java. This client supports Login, Registration and getting all appliances from the server.
 
 ## Server
 You can use one of the following pre-built servers with this client:  
